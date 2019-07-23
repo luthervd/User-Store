@@ -1,4 +1,5 @@
 var crypto = require("crypto");
+//TODO Erm - store salt somewhere less obvious maybe??
 const salt = "UsersSalt";
 var UserRepos = require("./userRepos");
 var defaultConfig = require('./config');
