@@ -1,10 +1,14 @@
 {
-  "name": "user-store",
+  "name": "luthervd-user-store",
   "version": "1.0.0",
   "description": "Simple User Store",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luthervd/User-Store.git"
   },
   "author": "Luke McGuinness",
   "license": "ISC",
