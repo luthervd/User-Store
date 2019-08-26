@@ -38,16 +38,20 @@ class UserStoreApp{
     };
     authenticateUser(userName,password){
         return new Promise((resolve,reject) => {
+            var hash = crypto.createHash('sha256');
             hash.on("readable",() => {
                 const data = hash.read();
-                this.repos.loadUser({userName: userName, password: data.toString("base64")})
-                .then((user) =>{
-                     resolve(user);
-                })
-                .catch(error => reject(error));
+                if(data){
+                    this.repos.loadUser({userName: userName, password: data.toString("base64")})
+                    .then((user) =>{
+                         resolve(user);
+                    })
+                    .catch(error => {
+                        reject(error)
+                    });
+                } 
             });
-            hash.write(password+salt, function() {hash.end();});
-            
+            hash.write(password+salt, function() {hash.end();});        
         });
     };
     readUser(userName){
