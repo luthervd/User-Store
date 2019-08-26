@@ -1,6 +1,6 @@
 {
   "name": "luthervd-user-store",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Simple User Store",
   "main": "index.js",
   "scripts": {

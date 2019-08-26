@@ -1,6 +1,4 @@
 var crypto = require("crypto");
-//TODO Erm - store salt somewhere less obvious maybe??
-const salt = "UsersSalt";
 var UserRepos = require("./userRepos");
 var defaultConfig = require('./config');
 
@@ -31,7 +29,7 @@ class UserStoreApp{
                     );
                 }
             });
-            hash.write(password+salt, function(){ 
+            hash.write(password+this.config.salt, function(){ 
                 hash.end(); 
             });
         });       
@@ -51,7 +49,7 @@ class UserStoreApp{
                     });
                 } 
             });
-            hash.write(password+salt, function() {hash.end();});        
+            hash.write(password+this.config.salt, function() {hash.end();});        
         });
     };
     readUser(userName){
